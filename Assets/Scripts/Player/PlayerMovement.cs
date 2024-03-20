@@ -1,4 +1,5 @@
 using Player;
+using Player.Player;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -22,13 +23,14 @@ public class PlayerMovement : NetworkBehaviour
     void Update()
     {
         if(!IsOwner) return;
+        var playerData = PlayerManager.players[gameObject];
         
         Vector2 playerMove = _controls.Player.Move.ReadValue<Vector2>();
 
-        if (_controls.Player.Run.IsPressed() && PlayerManager.Singleton.playerData.currentStamina > 0)
+        if (_controls.Player.Run.IsPressed() && playerData.currentStamina > 0)
         {
             currentSpeed = Mathf.MoveTowards(currentSpeed, 1f, Time.deltaTime * acceleration);
-            PlayerManager.Singleton.playerData.currentStamina -= Time.deltaTime * 10f;
+            playerData.currentStamina -= Time.deltaTime * 10f;
             currentStaminaRegenDelay = 0f;
         }
         else if (playerMove.magnitude > 0)
@@ -40,19 +42,19 @@ public class PlayerMovement : NetworkBehaviour
             currentSpeed = Mathf.MoveTowards(currentSpeed, 0f, Time.deltaTime * deceleration);
         }
 
-        Vector3 targetPosition = transform.position + new Vector3(playerMove.x, playerMove.y, 0) * (currentSpeed/10 * PlayerManager.Singleton.playerData.defaultMovementSpeed);
+        Vector3 targetPosition = transform.position + new Vector3(playerMove.x, playerMove.y, 0) * (currentSpeed/10 * playerData.defaultMovementSpeed);
         transform.position = targetPosition;
         
         _animator.SetFloat("Speed", currentSpeed);
         _animator.SetFloat("Horizontal", playerMove.x);
         _animator.SetFloat("Vertical", playerMove.y);
         
-        if (!(_controls.Player.Run.IsPressed()) && PlayerManager.Singleton.playerData.currentStamina < PlayerManager.Singleton.playerData.maxStamina)
+        if (!(_controls.Player.Run.IsPressed()) && playerData.currentStamina < playerData.maxStamina)
         {
             currentStaminaRegenDelay += Time.deltaTime;
-            if (currentStaminaRegenDelay >= 1f / PlayerManager.Singleton.playerData.staminaRegenRate)
+            if (currentStaminaRegenDelay >= 1f / playerData.staminaRegenRate)
             {
-                PlayerManager.Singleton.playerData.currentStamina = Mathf.Min(PlayerManager.Singleton.playerData.currentStamina + 1f, PlayerManager.Singleton.playerData.maxStamina);
+                playerData.currentStamina = Mathf.Min(playerData.currentStamina + 1f, playerData.maxStamina);
                 currentStaminaRegenDelay = 0f;
             }
         }
