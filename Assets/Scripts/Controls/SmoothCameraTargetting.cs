@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using Player;
-using Player.Player;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -25,8 +21,7 @@ public class SmoothCameraTargetting : MonoBehaviour
         target = player.transform;
         offset = transform.position - target.position;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (target == null)
@@ -36,10 +31,9 @@ public class SmoothCameraTargetting : MonoBehaviour
 
         Vector3 targetCamPos = target.position + offset;
         transform.position = Vector3.Lerp(transform.position, targetCamPos, smoothingSpeed * Time.deltaTime);
-
-        // Check if the player goes beyond an invisible square boundary
+        
         float distanceFromPlayer = Vector3.Distance(target.position, transform.position);
-        if (distanceFromPlayer > 5f) // adjust the value as needed
+        if (distanceFromPlayer > 5f)
         {
             float step = cameraSpeed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, target.position, step);

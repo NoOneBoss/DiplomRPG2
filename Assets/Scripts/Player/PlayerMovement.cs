@@ -1,12 +1,13 @@
+using System;
 using Player;
-using Player.Player;
 using Unity.Netcode;
 using UnityEngine;
 
 public class PlayerMovement : NetworkBehaviour
 {
-    private Controls _controls;
-
+    public static Controls _controls;
+    public static bool canMove = true;
+    
     public float acceleration;
     public float deceleration;
     private float currentSpeed = 0f;
@@ -22,8 +23,10 @@ public class PlayerMovement : NetworkBehaviour
 
     void Update()
     {
+        if(!canMove) return;
         if(!IsOwner) return;
-        var playerData = PlayerManager.players[gameObject];
+        if(NetworkManager.LocalClient.PlayerObject.gameObject.GetComponent<PlayerDataHandler>() == null) return;
+        var playerData = NetworkManager.LocalClient.PlayerObject.gameObject.GetComponent<PlayerDataHandler>().playerData;
         
         Vector2 playerMove = _controls.Player.Move.ReadValue<Vector2>();
 
@@ -49,14 +52,17 @@ public class PlayerMovement : NetworkBehaviour
         _animator.SetFloat("Horizontal", playerMove.x);
         _animator.SetFloat("Vertical", playerMove.y);
         
-        if (!(_controls.Player.Run.IsPressed()) && playerData.currentStamina < playerData.maxStamina)
-        {
-            currentStaminaRegenDelay += Time.deltaTime;
-            if (currentStaminaRegenDelay >= 1f / playerData.staminaRegenRate)
-            {
-                playerData.currentStamina = Mathf.Min(playerData.currentStamina + 1f, playerData.maxStamina);
-                currentStaminaRegenDelay = 0f;
-            }
-        }
+        if (_controls.Player.Run.IsPressed() || !(playerData.currentStamina < playerData.maxStamina)) return;
+        currentStaminaRegenDelay += Time.deltaTime;
+        
+        
+        if (!(currentStaminaRegenDelay >= 1f / playerData.staminaRegenRate)) return;
+        playerData.currentStamina = Mathf.Min(playerData.currentStamina + 1f, playerData.maxStamina);
+        currentStaminaRegenDelay = 0f;
+    }
+
+    private void OnDisable()
+    {
+        _controls.Disable();
     }
 }

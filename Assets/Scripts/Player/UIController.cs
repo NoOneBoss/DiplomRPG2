@@ -1,6 +1,5 @@
 using System.Linq;
 using Player;
-using Player.Player;
 using Unity.Netcode;
 using Unity.Properties;
 using UnityEngine;
@@ -22,13 +21,14 @@ public class UIController : MonoBehaviour
 
     public void StartUI()
     {
+        registerConverters();
+        
         var rootElement = _UIDocument.rootVisualElement;
         _playerName = rootElement.Q<Label>(name = "playerName");
         _healthBar = rootElement.Q<ProgressBar>(name = "playerHealth");
         _staminaBar = rootElement.Q<ProgressBar>(name = "playerStamina");
-        GameObject player = GameObject.FindGameObjectsWithTag("Player")
-            .First(player => player.GetComponent<NetworkObject>().IsOwner);
-        PlayerData playerData = player.GetComponent<PlayerDataHandler>().playerData;
+
+        PlayerData playerData = NetworkManager.Singleton.LocalClient.PlayerObject.gameObject.GetComponent<PlayerDataHandler>().playerData;
         
         
         //Name
@@ -41,32 +41,26 @@ public class UIController : MonoBehaviour
         
         
         //Health
-        _healthBar.SetBinding(nameof(ProgressBar.value), new DataBinding()
-        {
-            bindingMode = BindingMode.ToTarget,
-            dataSource = playerData,
-            dataSourcePath = PropertyPath.FromName(nameof(PlayerData.currentHealth))
-        });
-        _healthBar.SetBinding(nameof(ProgressBar.highValue), new DataBinding()
-        {
-            bindingMode = BindingMode.ToTarget,
-            dataSource = playerData,
-            dataSourcePath = PropertyPath.FromName(nameof(PlayerData.maxHealth))
-        });
-
-
         var healthBinding = new DataBinding()
         {
             bindingMode = BindingMode.ToTarget,
             dataSource = playerData,
             dataSourcePath = PropertyPath.FromName(nameof(PlayerData.currentHealth))
         };
+        var maxHealthBinding = new DataBinding()
+        {
+            bindingMode = BindingMode.ToTarget,
+            dataSource = playerData,
+            dataSourcePath = PropertyPath.FromName(nameof(PlayerData.maxHealth))
+        };
         if (ConverterGroups.TryGetConverterGroup("Health Converter", out var group))
         {
             healthBinding.ApplyConverterGroupToUI(group);
             healthBinding.ApplyConverterGroupToSource(group);
         }
+        _healthBar.SetBinding(nameof(ProgressBar.value), healthBinding);
         _healthBar.SetBinding(nameof(ProgressBar.title), healthBinding);
+        _healthBar.SetBinding(nameof(ProgressBar.highValue), maxHealthBinding);
         
         //Stamina
         _staminaBar.SetBinding(nameof(ProgressBar.value), new DataBinding()
@@ -81,5 +75,16 @@ public class UIController : MonoBehaviour
             dataSource = playerData,
             dataSourcePath = PropertyPath.FromName(nameof(PlayerData.maxStamina))
         });
+    }
+
+    private void registerConverters()
+    {
+        var group = new ConverterGroup("Health Converter");
+        
+        PlayerData playerData = NetworkManager.Singleton.LocalClient.PlayerObject.gameObject.GetComponent<PlayerDataHandler>().playerData;
+        group.AddConverter((ref int v) => $"{v}/{playerData.maxHealth} ХП");
+        group.AddConverter((ref float v) => $"{v}/{playerData.maxHealth} ХП");
+        
+        ConverterGroups.RegisterConverterGroup(group);
     }
 }

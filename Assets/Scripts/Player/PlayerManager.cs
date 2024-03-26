@@ -5,76 +5,149 @@ using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
+
 namespace Player
 {
-
-    namespace Player
+    public class PlayerManager : NetworkBehaviour
     {
-        public class PlayerManager : NetworkBehaviour
+        public static PlayerManager Singleton;
+        public NetworkVariable<NetworkSerializableArray<PlayerData>> players = new(readPerm: NetworkVariableReadPermission.Everyone, writePerm: NetworkVariableWritePermission.Server);
+        
+        private void Start()
         {
-            public static PlayerManager Singleton;
-            public static Dictionary<GameObject, PlayerData> players = new Dictionary<GameObject, PlayerData>();
-            public List<PlayerDataHandler> datas = new List<PlayerDataHandler>();
+            Singleton = this;
+        }
+
+        public override void OnNetworkSpawn()
+        {
+            if (NetworkManager.IsServer)
+            {
+                NetworkManager.OnClientConnectedCallback += OnClientConnectedCallback;
+                NetworkManager.OnClientDisconnectCallback += OnClientDisconnectedCallback;
+            }
             
-            public PlayerData playerDataTemplate;
+            Debug.Log($"NetworkVariable is {players.Value} when spawned.");
+            players.OnValueChanged += OnPlayerJoin;
+        }
+        
+        private void OnPlayerJoin(NetworkSerializableArray<PlayerData> previous, NetworkSerializableArray<PlayerData> current)
+        {
+            Debug.Log($"Detected NetworkVariable Change: Previous: {previous.values.Length} | Current: {current.values.Length}");
 
-            private void Start()
+            foreach (var currentValue in current.values)
             {
-                if (IsServer || IsHost || ServerIsHost)
-                {
-                    Singleton = this;
-                    Debug.Log("Start Player Manager");
-                }
-
-                GameObject.FindWithTag("NetworkManager").GetComponent<JoinGame>().Join();
+                UpdatePlayerTextOnClientRpc(currentValue.clientId, currentValue.playerName);
             }
+        }
 
-            public static void spawnPlayer(GameObject obj, PlayerData data)
+        [Rpc(SendTo.Server)]
+        private void UpdatePlayerTextOnClientRpc(ulong clientId, string playerName)
+        {
+            Debug.Log("Changing playerNameTexts");
+            if (NetworkManager.Singleton.ConnectedClients.TryGetValue(clientId, out var networkClient))
             {
-                Debug.Log("spawnPlayer");
-                PlayerDataHandler handler = obj.AddComponent<PlayerDataHandler>();
-                handler.InitializePlayerData(data);
-
-                players[obj] = data;
-                Singleton.datas.Add(handler);
+                Debug.Log($"Try to change playerNameText for {clientId} to {playerName}");
+                TargetUpdatePlayerTextRpc(networkClient.ClientId, playerName);
             }
+        }
+
+        [Rpc(SendTo.NotServer)]
+        private void TargetUpdatePlayerTextRpc(ulong id, string playerName)
+        {
+            Debug.Log($"Change playerNameText for {id} to {playerName}");
+            GameObject.FindGameObjectsWithTag("Player")
+                .First(player => player.GetComponent<NetworkObject>().OwnerClientId == id).gameObject
+                .GetComponentInChildren<TextMeshProUGUI>().text = playerName;
+        }
+        
+        private void OnClientConnectedCallback(ulong obj)
+        {
+            Debug.Log($"Player{obj} connected to the server!");
+        }
+        
+        private void OnClientDisconnectedCallback(ulong obj)
+        {
+            Debug.Log($"Player{obj} disconnected to the server!");
+            UpdatePlayersDataRpc(obj);
+        }
+        
+        [Rpc(SendTo.Server)]
+        private void UpdatePlayersDataRpc(ulong id)
+        {
+            var currentPlayerDataArray = players.Value;
+            var currentValues = new List<PlayerData>(currentPlayerDataArray.values.Where(x => x.clientId != id));
+
+            players.Value = new NetworkSerializableArray<PlayerData>(currentValues.ToArray());
+            Debug.Log($"Update players data (Count: {players.Value.values.Length})");
         }
     }
 
+    [Serializable]
+    public class NetworkSerializableArray<T> : INetworkSerializable where T : INetworkSerializable, new()
+    {
+        public T[] values = Array.Empty<T>();
+
+        public NetworkSerializableArray(T[] values)
+        {
+            this.values = values;
+        }
+
+        public NetworkSerializableArray()
+        {
+        }
+
+        public void NetworkSerialize<TSerializer>(BufferSerializer<TSerializer> serializer) where TSerializer : IReaderWriter
+        {
+            if (serializer.IsWriter)
+            {
+                serializer.GetFastBufferWriter().WriteNetworkSerializable(values.ToArray());
+            }
+            else
+            {
+                serializer.GetFastBufferReader().ReadNetworkSerializable(out values);
+            }
+        }
+    }
     
+
     [Serializable]
     [CreateAssetMenu]
-    public class PlayerData : ScriptableObject
+    public class PlayerData : ScriptableObject, INetworkSerializable
     {
-        public TextMeshProUGUI playerNameLabel;
-        
-        
-        public string playerName;
+        [SerializeField] public ulong clientId;
+        [SerializeField] public ulong networkId;
+        [SerializeField] public string playerName;
 
         [Header("Health")]
-        public float maxHealth;
-        public float currentHealth;
+        [SerializeField] public float maxHealth;
+        [SerializeField] public float currentHealth;
 
         [Header("Movement")]
-        public float defaultMovementSpeed;
-        public float maxStamina;
-        public float currentStamina;
-        public float staminaRegenRate;
+        [SerializeField] public float defaultMovementSpeed;
+        [SerializeField] public float maxStamina;
+        [SerializeField] public float currentStamina;
+        [SerializeField] public float staminaRegenRate;
+        public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
+        {
+            serializer.SerializeValue(ref clientId);
+            serializer.SerializeValue(ref networkId);
+            serializer.SerializeValue(ref playerName);
+            
+            serializer.SerializeValue(ref maxHealth);
+            serializer.SerializeValue(ref currentHealth);
+            
+            serializer.SerializeValue(ref defaultMovementSpeed);
+            serializer.SerializeValue(ref maxStamina);
+            serializer.SerializeValue(ref currentStamina);
+            serializer.SerializeValue(ref staminaRegenRate);
+        }
+        
+        
     }
     
-
-    namespace Player
+    public class PlayerDataHandler : MonoBehaviour
     {
-        public class PlayerDataHandler : MonoBehaviour
-        {
-            public PlayerData playerData;
-
-            public void InitializePlayerData(PlayerData data)
-            {
-                playerData = data;
-            }
-        }
+        public PlayerData playerData;
     }
-
-
+    
 }
