@@ -1,28 +1,34 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+using Configs;
 using DavidFDev.DevConsole;
 using Player;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class JoinGame : NetworkBehaviour
 {
+    public PlayerDataObject defaultData;
     private bool isSceneLoading = false;
-
     private void Start()
     {
-        Join();
+        DontDestroyOnLoad(Camera.main);
+        if (Application.isBatchMode)
+        {
+            NetworkManager.StartServer();
+            loadScene("SampleScene", LoadSceneMode.Additive);
+        }
     }
-    
-    public override void OnNetworkSpawn()
+
+    private void loadScene(string name, LoadSceneMode mode)
     {
         if (NetworkManager.IsServer && !isSceneLoading)
         {
             isSceneLoading = true;
-            var status = NetworkManager.SceneManager.LoadScene("SampleScene", LoadSceneMode.Additive);
+            var status = NetworkManager.SceneManager.LoadScene(name, mode);
             if (status != SceneEventProgressStatus.Started)
             {
                 Debug.LogWarning($"Failed to load scene with a {nameof(SceneEventProgressStatus)}: {status}");
@@ -30,73 +36,67 @@ public class JoinGame : NetworkBehaviour
             }
             else
             {
-                Debug.Log("Scene loaded!");
+                Debug.Log($"Scene {name} loaded!");
             }
         }
     }
 
-    private void Join()
+
+    public bool alreadyConnected = false;
+    public void Join(string uuid, string username, string authToken)
     {
-        if (Application.isBatchMode)
-        {
-            NetworkManager.StartServer();
-        }
-        
-        if(NetworkManager.IsServer) return;
-        
+        DevConsole.EnableConsole();
         NetworkManager.StartClient();
         Debug.Log("Start client");
         
         Debug.Log("Creating player...");
-        StartCoroutine(CreatePlayer());
-        DevConsole.EnableConsole();
+        StartCoroutine(CreatePlayer(uuid, username, authToken));
+        
     }
 
-    IEnumerator CreatePlayer()
+    IEnumerator CreatePlayer(string uuid, string username, string authToken)
     {
+        Debug.Log("Waiting network manager initialization...");
         yield return new WaitUntil(() => NetworkManager.Singleton != null);
+        Debug.Log("Waiting local player initialization...");
         yield return new WaitUntil(() => NetworkManager.Singleton.LocalClient.PlayerObject != null);
-
+        Debug.Log("Success creating of a player...");
+        
         var player = NetworkManager.Singleton.LocalClient.PlayerObject;
-        var playerData = CreateInitialPlayerData(NetworkManager.Singleton.LocalClient.ClientId, player.NetworkObjectId);
-
-        UpdatePlayersDataRpc(playerData);
-
-        PlayerDataHandler dataHandler = player.gameObject.AddComponent<PlayerDataHandler>();
-        dataHandler.playerData = playerData;
-
-        var playerNameLabel = player.GetComponentInChildren<TextMeshProUGUI>();
-        if (playerNameLabel.GetComponentInParent<NetworkObject>().IsOwner) playerNameLabel.enabled = false;
-
+        CreateInitialPlayerData(player.gameObject, NetworkManager.Singleton.LocalClient.ClientId, player.NetworkObjectId, uuid, username, authToken);
+        
+        yield return new WaitUntil(() => player.GetComponent<NetworkObject>().IsSpawned);
+        
         UIController.Singleton.StartUI();
         Camera.main.GetComponent<SmoothCameraTargetting>().StartTargetting();
-
-        yield return new WaitUntil(() => player.GetComponent<NetworkObject>().IsSpawned);
     }
 
-    private PlayerData CreateInitialPlayerData(ulong clientId, ulong networkId)
+    private PlayerData CreateInitialPlayerData(GameObject player, ulong clientId, ulong networkId, string uuid, string username, string authToken)
     {
-        var playerData = ScriptableObject.CreateInstance<PlayerData>();
-        playerData.clientId = clientId;
-        playerData.networkId = networkId;
-        playerData.playerName = $"player{networkId}";
-        playerData.currentHealth = 100f;
-        playerData.maxHealth = 100f;
-        playerData.defaultMovementSpeed = 0.5f;
-        playerData.maxStamina = 100f;
-        playerData.currentStamina = 100f;
-        playerData.staminaRegenRate = 10f;
+        var playerData = player.GetComponent<PlayerData>();
+
+        playerData.uuid = uuid;
+        playerData.authToken = authToken;
+        playerData.ClientId = clientId;
+        playerData.NetworkId = networkId;
+        playerData.PlayerName = username;
+        playerData.CurrentHealth = defaultData.currentHealth;
+        playerData.MaxHealth = defaultData.maxHealth;
+        playerData.HealthRegen = defaultData.healthRegen;
+        playerData.MaxShield = defaultData.maxShield;
+        playerData.CurrentShield = defaultData.currentShield;
+        playerData.ShieldRegen = defaultData.shieldRegen;
+        playerData.MaxMana = defaultData.maxMana;
+        playerData.CurrentMana = defaultData.currentMana;
+        playerData.ManaRegen = defaultData.manaRegen;
+        playerData.MaxStamina = defaultData.maxStamina;
+        playerData.CurrentStamina = defaultData.currentStamina;
+        playerData.StaminaRegenRate = defaultData.staminaRegenRate;
+        playerData.StaminaPerMove = defaultData.staminaPerMove;
+        playerData.MovementSpeed = defaultData.movementSpeed;
+        playerData.Armor = defaultData.armor;
+        playerData.AttackDamage = defaultData.attackDamage;
+
         return playerData;
-    }
-
-
-    [Rpc(SendTo.Server)]
-    private void UpdatePlayersDataRpc(PlayerData playerData)
-    {
-        var currentPlayerDataArray = PlayerManager.Singleton.players.Value;
-        var currentValues = new List<PlayerData>(currentPlayerDataArray.values) { playerData };
-
-        PlayerManager.Singleton.players.Value = new NetworkSerializableArray<PlayerData>(currentValues.ToArray());
-        Debug.Log($"Update players data (Count: {PlayerManager.Singleton.players.Value.values.Length})");
     }
 }

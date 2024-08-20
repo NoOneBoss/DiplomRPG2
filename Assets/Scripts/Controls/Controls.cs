@@ -62,6 +62,24 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dodge"",
+                    ""type"": ""Button"",
+                    ""id"": ""4094dccb-f1be-4960-aec0-a40f4b2cf88b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Parry"",
+                    ""type"": ""Button"",
+                    ""id"": ""ba5e89e1-4115-4207-a6ac-16d40c113c9d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +170,116 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""PullWeapon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""539ba724-f3ee-45ed-83e4-247afd09196d"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dodge"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1e5706af-a22a-4d8c-9db9-9e8d5f75115e"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Parry"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""dd5891dd-62df-4f2a-84c8-05332f98c246"",
+            ""actions"": [
+                {
+                    ""name"": ""Open_Chat"",
+                    ""type"": ""Button"",
+                    ""id"": ""cfd2c4a1-a81f-47a0-a7b7-02894a02f714"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Close_Chat"",
+                    ""type"": ""Button"",
+                    ""id"": ""83ead57b-6dd3-47c3-a769-775eb504a72f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Send"",
+                    ""type"": ""Button"",
+                    ""id"": ""f3ae3ff3-79fe-4c5e-a2d3-25083fba123b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Open/Close_PlayerList"",
+                    ""type"": ""Button"",
+                    ""id"": ""c02539e7-bccd-40a3-ae53-81fed1680537"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""771e60e1-05de-4b1a-922d-5e3a58ffb043"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Close_Chat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9c2bcfc8-7ad1-4807-9110-f56d9bdaac06"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Open_Chat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""24e937df-c9d1-4f3c-81d7-5484a030ad00"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Send"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a1ab9c5f-e56f-45ca-a20e-65785524eb63"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Open/Close_PlayerList"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -164,6 +292,14 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Walk = m_Player.FindAction("Walk", throwIfNotFound: true);
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         m_Player_PullWeapon = m_Player.FindAction("PullWeapon", throwIfNotFound: true);
+        m_Player_Dodge = m_Player.FindAction("Dodge", throwIfNotFound: true);
+        m_Player_Parry = m_Player.FindAction("Parry", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_Open_Chat = m_UI.FindAction("Open_Chat", throwIfNotFound: true);
+        m_UI_Close_Chat = m_UI.FindAction("Close_Chat", throwIfNotFound: true);
+        m_UI_Send = m_UI.FindAction("Send", throwIfNotFound: true);
+        m_UI_OpenClose_PlayerList = m_UI.FindAction("Open/Close_PlayerList", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -229,6 +365,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Walk;
     private readonly InputAction m_Player_Run;
     private readonly InputAction m_Player_PullWeapon;
+    private readonly InputAction m_Player_Dodge;
+    private readonly InputAction m_Player_Parry;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -237,6 +375,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Walk => m_Wrapper.m_Player_Walk;
         public InputAction @Run => m_Wrapper.m_Player_Run;
         public InputAction @PullWeapon => m_Wrapper.m_Player_PullWeapon;
+        public InputAction @Dodge => m_Wrapper.m_Player_Dodge;
+        public InputAction @Parry => m_Wrapper.m_Player_Parry;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -258,6 +398,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @PullWeapon.started += instance.OnPullWeapon;
             @PullWeapon.performed += instance.OnPullWeapon;
             @PullWeapon.canceled += instance.OnPullWeapon;
+            @Dodge.started += instance.OnDodge;
+            @Dodge.performed += instance.OnDodge;
+            @Dodge.canceled += instance.OnDodge;
+            @Parry.started += instance.OnParry;
+            @Parry.performed += instance.OnParry;
+            @Parry.canceled += instance.OnParry;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -274,6 +420,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @PullWeapon.started -= instance.OnPullWeapon;
             @PullWeapon.performed -= instance.OnPullWeapon;
             @PullWeapon.canceled -= instance.OnPullWeapon;
+            @Dodge.started -= instance.OnDodge;
+            @Dodge.performed -= instance.OnDodge;
+            @Dodge.canceled -= instance.OnDodge;
+            @Parry.started -= instance.OnParry;
+            @Parry.performed -= instance.OnParry;
+            @Parry.canceled -= instance.OnParry;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -291,11 +443,90 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
+    private readonly InputAction m_UI_Open_Chat;
+    private readonly InputAction m_UI_Close_Chat;
+    private readonly InputAction m_UI_Send;
+    private readonly InputAction m_UI_OpenClose_PlayerList;
+    public struct UIActions
+    {
+        private @Controls m_Wrapper;
+        public UIActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Open_Chat => m_Wrapper.m_UI_Open_Chat;
+        public InputAction @Close_Chat => m_Wrapper.m_UI_Close_Chat;
+        public InputAction @Send => m_Wrapper.m_UI_Send;
+        public InputAction @OpenClose_PlayerList => m_Wrapper.m_UI_OpenClose_PlayerList;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void AddCallbacks(IUIActions instance)
+        {
+            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
+            @Open_Chat.started += instance.OnOpen_Chat;
+            @Open_Chat.performed += instance.OnOpen_Chat;
+            @Open_Chat.canceled += instance.OnOpen_Chat;
+            @Close_Chat.started += instance.OnClose_Chat;
+            @Close_Chat.performed += instance.OnClose_Chat;
+            @Close_Chat.canceled += instance.OnClose_Chat;
+            @Send.started += instance.OnSend;
+            @Send.performed += instance.OnSend;
+            @Send.canceled += instance.OnSend;
+            @OpenClose_PlayerList.started += instance.OnOpenClose_PlayerList;
+            @OpenClose_PlayerList.performed += instance.OnOpenClose_PlayerList;
+            @OpenClose_PlayerList.canceled += instance.OnOpenClose_PlayerList;
+        }
+
+        private void UnregisterCallbacks(IUIActions instance)
+        {
+            @Open_Chat.started -= instance.OnOpen_Chat;
+            @Open_Chat.performed -= instance.OnOpen_Chat;
+            @Open_Chat.canceled -= instance.OnOpen_Chat;
+            @Close_Chat.started -= instance.OnClose_Chat;
+            @Close_Chat.performed -= instance.OnClose_Chat;
+            @Close_Chat.canceled -= instance.OnClose_Chat;
+            @Send.started -= instance.OnSend;
+            @Send.performed -= instance.OnSend;
+            @Send.canceled -= instance.OnSend;
+            @OpenClose_PlayerList.started -= instance.OnOpenClose_PlayerList;
+            @OpenClose_PlayerList.performed -= instance.OnOpenClose_PlayerList;
+            @OpenClose_PlayerList.canceled -= instance.OnOpenClose_PlayerList;
+        }
+
+        public void RemoveCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IUIActions instance)
+        {
+            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnWalk(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
         void OnPullWeapon(InputAction.CallbackContext context);
+        void OnDodge(InputAction.CallbackContext context);
+        void OnParry(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnOpen_Chat(InputAction.CallbackContext context);
+        void OnClose_Chat(InputAction.CallbackContext context);
+        void OnSend(InputAction.CallbackContext context);
+        void OnOpenClose_PlayerList(InputAction.CallbackContext context);
     }
 }

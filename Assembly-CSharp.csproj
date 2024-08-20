@@ -26,7 +26,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\Assembly-CSharp\</OutputPath>
-    <DefineConstants>UNITY_2023_2_14;UNITY_2023_2;UNITY_2023;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;UNITY_2023_1_OR_NEWER;UNITY_2023_2_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_MARSHALLING_TESTS;ENABLE_VIDEO;ENABLE_NAVIGATION_OFFMESHLINK_TO_NAVMESHLINK;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_USES_EXPLICIT_MEMORY_MANAGER_INITIALIZER;PLATFORM_SUPPORTS_WAIT_FOR_PRESENTATION;PLATFORM_SUPPORTS_SPLIT_GRAPHICS_JOBS;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;UNITY_SERVER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;TEXTCORE_TEXT_ENGINE_1_5_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_2023_2_14;UNITY_2023_2;UNITY_2023;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;UNITY_2023_1_OR_NEWER;UNITY_2023_2_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_MARSHALLING_TESTS;ENABLE_VIDEO;ENABLE_NAVIGATION_OFFMESHLINK_TO_NAVMESHLINK;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_USES_EXPLICIT_MEMORY_MANAGER_INITIALIZER;PLATFORM_SUPPORTS_WAIT_FOR_PRESENTATION;PLATFORM_SUPPORTS_SPLIT_GRAPHICS_JOBS;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;TEXTCORE_TEXT_ENGINE_1_5_OR_NEWER;UNITY_POST_PROCESSING_STACK_V2;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169,0649</NoWarn>
@@ -46,39 +46,101 @@
     <Analyzer Include="F:\Unity\2023.2.14f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Items\Item.cs" />
+    <Compile Include="Assets\Scripts\Items\ItemPool.cs" />
+    <Compile Include="Assets\Scripts\Items\ModifierSpecification\AttackDamageModifier.cs" />
     <Compile Include="Assets\Scripts\Player\CombatSystem.cs" />
+    <Compile Include="Assets\Scripts\Other\Helpers.cs" />
+    <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\SpriteColorAnimation.cs" />
+    <Compile Include="Assets\Scripts\Items\ModifierSpecification\MaxHealthModifier.cs" />
+    <Compile Include="Assets\Scripts\Items\Modifier.cs" />
     <Compile Include="Assets\Scripts\Netcode\JoinGame.cs" />
+    <Compile Include="Assets\Scripts\Items\Factories\WeaponFactory.cs" />
+    <Compile Include="Assets\Scripts\UI\LoginAndRegistration.cs" />
+    <Compile Include="Assets\Scripts\Other\Schedulers.cs" />
     <Compile Include="Assets\Scripts\Controls\SmoothCameraTargetting.cs" />
+    <Compile Include="Assets\Scripts\Inventory\Types\InventoryModel.cs" />
+    <Compile Include="Assets\Scripts\Items\ModifierType.cs" />
+    <Compile Include="Assets\Scripts\Other\PasswordAdvisor.cs" />
+    <Compile Include="Assets\Scripts\UI\ChatSystem.cs" />
+    <Compile Include="Assets\Scripts\Inventory\Types\PanelDragManipulator.cs" />
+    <Compile Include="Assets\Scripts\UI\UIController.cs" />
+    <Compile Include="Assets\Scripts\Monsters\SkeletonBehaviour.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\Player\UIController.cs" />
+    <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\Other\SerializableGuid.cs" />
+    <Compile Include="Assets\Scripts\Inventory\Types\InventoryView.cs" />
+    <Compile Include="Assets\Scripts\Player\Attributes.cs" />
+    <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\TopDownCharacterController.cs" />
+    <Compile Include="Assets\Scripts\Monsters\Pathfinding\Node.cs" />
+    <Compile Include="Assets\Scripts\Items\ItemSpecification\Weapon.cs" />
+    <Compile Include="Assets\Scripts\Other\BindableProperty.cs" />
+    <Compile Include="Assets\Scripts\AI\Predictor.cs" />
+    <Compile Include="Assets\Scripts\Inventory\Slot.cs" />
+    <Compile Include="Assets\Scripts\Monsters\Pathfinding\Pathfinding.cs" />
+    <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\PropsAltar.cs" />
+    <Compile Include="Assets\Scripts\Other\ObservableArray.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerRegeneration.cs" />
+    <Compile Include="Assets\Scripts\Netcode\LogModule\LogService.cs" />
+    <Compile Include="Assets\Scripts\Items\Factories\ModifierFactory.cs" />
+    <Compile Include="Assets\Scripts\Monsters\Pathfinding\GridVisualizer.cs" />
     <Compile Include="Assets\Scripts\Controls\Controls.cs" />
+    <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\LayerTrigger.cs" />
+    <Compile Include="Assets\Scripts\Configs\ServerConfig.cs" />
+    <Compile Include="Assets\Scripts\UI\Chat\ChatMessage.cs" />
+    <Compile Include="Assets\Scripts\Inventory\Types\Inventory.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerData.cs" />
+    <Compile Include="Assets\Scripts\Inventory\StorageView.cs" />
+    <Compile Include="Assets\Scripts\Inventory\Types\InventoryController.cs" />
+    <Compile Include="Assets\Scripts\Monsters\Pathfinding\Grid.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
+    <Compile Include="Assets\Scripts\Configs\PlayerDataObject.cs" />
+    <Compile Include="Assets\Scripts\UI\PlayerStatusUI.cs" />
+    <Compile Include="Assets\Scripts\Inventory\Types\ItemDatabase.cs" />
+    <Compile Include="Assets\Scripts\Netcode\LogModule\Log.cs" />
+    <Compile Include="Assets\Scripts\Inventory\Types\InventoryData.cs" />
+    <Compile Include="Assets\Scripts\Inventory\VisualElementExtensions.cs" />
+    <None Include="Assets\Sprites\player\Combat\Bow\guides\using bow combat.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
-    <None Include="Assets\gameInterface.uxml" />
+    <None Include="Assets\UI Toolkit\Forms\gameInterface.uxml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Cainos\Pixel Art Top Down - Basic\Changelog.txt" />
+    <None Include="Assets\Packages\YamlDotNet.15.1.2\lib\netstandard2.1\YamlDotNet.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\UI Toolkit\Forms\Inventory.uxml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\UI Toolkit\Forms\PlayerStatus.uxml" />
+    <None Include="Assets\Cainos\Pixel Art Top Down - Basic\Shader\SH Sprite Shadow.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\UI Toolkit\Forms\registerForm.uxml" />
     <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-    <None Include="Assets\Sprites\player\Sword &amp; Shield\guides\using sword &amp; shield.txt" />
+    <None Include="Assets\Sprites\player\Combat\Sword &amp; Shield\guides\using sword &amp; shield.txt" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\Scripts\ScriptableObjects\BlurShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\Resources\500-worst-passwords.txt" />
+    <None Include="Assets\Packages\YamlDotNet.15.1.2\LICENSE.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\UI Toolkit\UnityThemes\Style.uss" />
+    <None Include="Assets\UI Toolkit\Styles\Style.uss" />
+    <None Include="Assets\UI Toolkit\Forms\authForm.uxml" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Sprites\player\Combat\Spear\guides\using spear combat.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\UI Toolkit\Styles\menu-button.uss" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\Cainos\Pixel Art Top Down - Basic\Shader\SH Sprite Shadow Mask.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\Sprites\player\Movement &amp; Other\guides\naming conventions.txt" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\Sprites\player\Movement &amp; Other\guides\using this base.txt" />
+    <None Include="Assets\UI Toolkit\Styles\Inventory.uss" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
@@ -426,6 +488,9 @@
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\PackageCache\com.unity.nuget.mono-cecil@1.11.4\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="YamlDotNet">
+      <HintPath>F:\UnityProjects\DiplomRPG2\Assets\Packages\YamlDotNet.15.1.2\lib\netstandard2.1\YamlDotNet.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>F:\Unity\2023.2.14f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
@@ -796,8 +861,14 @@
     <Reference Include="Unity.Services.Relay">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Services.Relay.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AI.Navigation">
+      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Tutorials.Core.Editor">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Tutorials.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="NavMeshPlus">
+      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\NavMeshPlus.dll</HintPath>
     </Reference>
     <Reference Include="PsdPlugin">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
@@ -817,6 +888,9 @@
     <Reference Include="Unity.2D.IK.Editor">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="NavMeshPlusEditor">
+      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\NavMeshPlusEditor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.2D.IK.Runtime">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
     </Reference>
@@ -832,9 +906,6 @@
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="GradientMap.Editor">
-      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\GradientMap.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.2D.Aseprite.Editor">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.2D.Aseprite.Editor.dll</HintPath>
     </Reference>
@@ -843,9 +914,6 @@
     </Reference>
     <Reference Include="Unity.Netcode.Editor">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Netcode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Pixelation.Editor">
-      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Pixelation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Services.Authentication.PlayerAccounts">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Services.Authentication.PlayerAccounts.dll</HintPath>
@@ -877,6 +945,9 @@
     <Reference Include="Unity.2D.Animation.Runtime">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.2D.Animation.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Sentis.iOSBLAS">
+      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Sentis.iOSBLAS.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Collections.Editor">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Collections.Editor.dll</HintPath>
     </Reference>
@@ -892,6 +963,12 @@
     <Reference Include="Unity.VisualScripting.Core.Editor">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AI.Navigation.Updater">
+      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Sentis">
+      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Sentis.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
     </Reference>
@@ -900,6 +977,9 @@
     </Reference>
     <Reference Include="Unity.Services.Core.Analytics">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Sentis.Editor">
+      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Sentis.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
@@ -919,6 +999,9 @@
     <Reference Include="Unity.2D.Sprite.Editor">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
+      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.2D.Psdimporter.Editor">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
     </Reference>
@@ -930,6 +1013,9 @@
     </Reference>
     <Reference Include="Unity.Multiplayer.Tools.NetworkSolutionInterface">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Multiplayer.Tools.NetworkSolutionInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Sentis.MacBLAS">
+      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Sentis.MacBLAS.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
@@ -997,9 +1083,6 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Pixelation.Runtime">
-      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Pixelation.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Mathematics.Editor">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
@@ -1045,6 +1128,9 @@
     <Reference Include="Unity.EditorCoroutines.Editor">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="NuGetForUnity">
+      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\NuGetForUnity.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.2D.Common.Runtime">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll</HintPath>
     </Reference>
@@ -1054,17 +1140,23 @@
     <Reference Include="Unity.Multiplayer.Tools.Adapters">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Multiplayer.Tools.Adapters.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Mathematics">
-      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
+    <Reference Include="Unity.AI.Navigation.Editor">
+      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Services.Authentication">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Services.Authentication.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.DavidFDev.DevConsole">
-      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.DavidFDev.DevConsole.dll</HintPath>
+    <Reference Include="Unity.Mathematics">
+      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Networking.Transport">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Networking.Transport.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Sentis.ONNX">
+      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Sentis.ONNX.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.DavidFDev.DevConsole">
+      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.DavidFDev.DevConsole.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
@@ -1105,23 +1197,17 @@
     <Reference Include="Unity.Burst">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Services.Authentication.Server">
-      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Services.Authentication.Server.dll</HintPath>
+    <Reference Include="Unity.Tutorials.Core">
+      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Tutorials.Core.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Multiplayer.Tools.Initialization">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Multiplayer.Tools.Initialization.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Multiplayer.Tools.MetricTypes">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Multiplayer.Tools.MetricTypes.dll</HintPath>
     </Reference>
-    <Reference Include="GradientMap.Runtime">
-      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\GradientMap.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Tutorials.Core">
-      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Tutorials.Core.dll</HintPath>
+    <Reference Include="Unity.VisualStudio.Editor">
+      <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rendering.LightTransport.Runtime">
       <HintPath>F:\UnityProjects\DiplomRPG2\Library\ScriptAssemblies\Unity.Rendering.LightTransport.Runtime.dll</HintPath>
